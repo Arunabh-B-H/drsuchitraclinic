@@ -70,6 +70,146 @@ export default function HeroSection({ onBookClick, onConcernSelect: _onConcernSe
     "🩺 Nominal Consultation Fee: ₹350–₹500"
   ];
 
+  const renderHeroDoctorCard = () => (
+    <div 
+      className="hero-portrait-card"
+      style={{
+        position: 'relative',
+        width: '100%',
+        maxWidth: '430px',
+        borderRadius: '28px',
+        padding: '10px',
+        background: 'linear-gradient(145deg, #FFFFFF, rgba(240, 253, 250, 0.85))',
+        border: '1px solid rgba(13, 148, 136, 0.25)',
+        boxShadow: '0 25px 50px -12px rgba(15, 23, 42, 0.15), 0 0 35px -5px rgba(13, 148, 136, 0.25)'
+      }}
+    >
+      {/* Doctor Photo */}
+      <div style={{
+        position: 'relative',
+        borderRadius: '22px',
+        overflow: 'hidden',
+        aspectRatio: '3 / 3.9',
+        backgroundColor: '#E2E8F0'
+      }}>
+        <img
+          src="/assets/dr-suchithra.jpg"
+          alt="Dr. Suchithra C - Consultant Dermatologist Trivandrum"
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            objectPosition: 'top center'
+          }}
+        />
+
+        {/* Subtle gradient overlay at bottom of photo */}
+        <div 
+          className="hero-photo-overlay"
+          style={{
+            position: 'absolute',
+            inset: 'auto 0 0 0',
+            height: '42%',
+            background: 'linear-gradient(to top, rgba(15, 23, 42, 0.92) 0%, rgba(15, 23, 42, 0) 100%)',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'flex-end',
+            padding: '1.25rem',
+            color: '#FFFFFF'
+          }}
+        >
+          <div className="hero-doc-name" style={{ fontSize: '1.25rem', fontWeight: 800, letterSpacing: '-0.01em' }}>
+            Dr. Suchithra C
+          </div>
+          <div className="hero-doc-degrees" style={{ fontSize: '0.8rem', color: '#99F6E4', fontWeight: 600 }}>
+            MBBS, MD, DNB (Dermatology, Venereology & Leprosy)
+          </div>
+        </div>
+      </div>
+
+      {/* Floating Trust Badge 1: Pedigree */}
+      <div 
+        className="float-animation hero-float-badge-left"
+        style={{
+          position: 'absolute',
+          top: '20px',
+          left: '-18px',
+          background: '#FFFFFF',
+          padding: '0.65rem 1rem',
+          borderRadius: '16px',
+          boxShadow: '0 12px 28px rgba(15, 23, 42, 0.12)',
+          border: '1px solid #E2E8F0',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.65rem',
+          zIndex: 2
+        }}
+      >
+        <div className="hero-badge-icon-box" style={{
+          width: '34px',
+          height: '34px',
+          borderRadius: '10px',
+          background: '#F0FDFA',
+          color: '#0D9488',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          fontWeight: 800
+        }}>
+          <Award size={18} />
+        </div>
+        <div>
+          <div className="hero-badge-tag" style={{ fontSize: '0.7rem', textTransform: 'uppercase', color: '#64748B', fontWeight: 700 }}>
+            Institutional Pedigree
+          </div>
+          <div className="hero-badge-val" style={{ fontSize: '0.84rem', fontWeight: 700, color: '#0F172A' }}>
+            Ex-KIMSHEALTH Consultant
+          </div>
+        </div>
+      </div>
+
+      {/* Floating Trust Badge 2: 688+ 5★ Reviews with Google Brand */}
+      <div 
+        className="float-animation hero-float-badge-right"
+        style={{
+          position: 'absolute',
+          bottom: '-14px',
+          right: '-18px',
+          background: '#FFFFFF',
+          padding: '0.65rem 1.05rem',
+          borderRadius: '16px',
+          boxShadow: '0 12px 28px rgba(15, 23, 42, 0.12)',
+          border: '1px solid #E2E8F0',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.65rem',
+          zIndex: 2
+        }}
+      >
+        <div className="hero-badge-icon-box" style={{
+          width: '34px',
+          height: '34px',
+          borderRadius: '10px',
+          background: '#FEF3C7',
+          color: '#D97706',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}>
+          <GoogleIcon size={18} />
+        </div>
+        <div>
+          <div className="hero-badge-val" style={{ fontSize: '0.86rem', fontWeight: 800, color: '#0F172A' }}>
+            688+ Google Reviews
+          </div>
+          <div className="hero-badge-sub" style={{ fontSize: '0.72rem', color: '#059669', fontWeight: 700 }}>
+            5.0 ★ Unanimous Rating
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <section 
       id="hero"
@@ -203,6 +343,11 @@ export default function HeroSection({ onBookClick, onConcernSelect: _onConcernSe
             >
               Consult with <strong>Dr. Suchithra C</strong>, dual board-certified <strong>MBBS, MD, DNB</strong> Dermatologist with 11+ years of hospital precision (Ex-KIMSHEALTH). Purely doctor-administered medical care with zero commercial shortcuts.
             </p>
+
+            {/* Mobile Doctor Portrait Card (Phone View <= 1024px) */}
+            <div className="hero-visual-mobile slide-in-left-delay-3">
+              {renderHeroDoctorCard()}
+            </div>
 
             {/* Interactive 3-Pillar Left-to-Right Slider Box */}
             <div 
@@ -383,144 +528,7 @@ export default function HeroSection({ onBookClick, onConcernSelect: _onConcernSe
             className="slide-in-right hero-visual-desktop"
             style={{ position: 'relative', display: 'flex', justifyContent: 'center' }}
           >
-            {/* Portrait Card Container */}
-            <div 
-              className="hero-portrait-card"
-              style={{
-                position: 'relative',
-                width: '100%',
-                maxWidth: '430px',
-                borderRadius: '28px',
-                padding: '10px',
-                background: 'linear-gradient(145deg, #FFFFFF, rgba(240, 253, 250, 0.85))',
-                border: '1px solid rgba(13, 148, 136, 0.25)',
-                boxShadow: '0 25px 50px -12px rgba(15, 23, 42, 0.15), 0 0 35px -5px rgba(13, 148, 136, 0.25)'
-              }}
-            >
-              {/* Doctor Photo */}
-              <div style={{
-                position: 'relative',
-                borderRadius: '22px',
-                overflow: 'hidden',
-                aspectRatio: '3 / 3.9',
-                backgroundColor: '#E2E8F0'
-              }}>
-                <img
-                  src="/assets/dr-suchithra.jpg"
-                  alt="Dr. Suchithra C - Consultant Dermatologist Trivandrum"
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    objectPosition: 'top center'
-                  }}
-                />
-
-                {/* Subtle gradient overlay at bottom of photo */}
-                <div 
-                  className="hero-photo-overlay"
-                  style={{
-                    position: 'absolute',
-                    inset: 'auto 0 0 0',
-                    height: '42%',
-                    background: 'linear-gradient(to top, rgba(15, 23, 42, 0.92) 0%, rgba(15, 23, 42, 0) 100%)',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'flex-end',
-                    padding: '1.25rem',
-                    color: '#FFFFFF'
-                  }}
-                >
-                  <div className="hero-doc-name" style={{ fontSize: '1.25rem', fontWeight: 800, letterSpacing: '-0.01em' }}>
-                    Dr. Suchithra C
-                  </div>
-                  <div className="hero-doc-degrees" style={{ fontSize: '0.8rem', color: '#99F6E4', fontWeight: 600 }}>
-                    MBBS, MD, DNB (Dermatology, Venereology & Leprosy)
-                  </div>
-                </div>
-              </div>
-
-              {/* Floating Trust Badge 1: Pedigree */}
-              <div 
-                className="float-animation hero-float-badge-left"
-                style={{
-                  position: 'absolute',
-                  top: '20px',
-                  left: '-18px',
-                  background: '#FFFFFF',
-                  padding: '0.65rem 1rem',
-                  borderRadius: '16px',
-                  boxShadow: '0 12px 28px rgba(15, 23, 42, 0.12)',
-                  border: '1px solid #E2E8F0',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.65rem',
-                  zIndex: 2
-                }}
-              >
-                <div className="hero-badge-icon-box" style={{
-                  width: '34px',
-                  height: '34px',
-                  borderRadius: '10px',
-                  background: '#F0FDFA',
-                  color: '#0D9488',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontWeight: 800
-                }}>
-                  <Award size={18} />
-                </div>
-                <div>
-                  <div className="hero-badge-tag" style={{ fontSize: '0.7rem', textTransform: 'uppercase', color: '#64748B', fontWeight: 700 }}>
-                    Institutional Pedigree
-                  </div>
-                  <div className="hero-badge-val" style={{ fontSize: '0.84rem', fontWeight: 700, color: '#0F172A' }}>
-                    Ex-KIMSHEALTH Consultant
-                  </div>
-                </div>
-              </div>
-
-              {/* Floating Trust Badge 2: 688+ 5★ Reviews with Google Brand */}
-              <div 
-                className="float-animation hero-float-badge-right"
-                style={{
-                  position: 'absolute',
-                  bottom: '-14px',
-                  right: '-18px',
-                  background: '#FFFFFF',
-                  padding: '0.65rem 1.05rem',
-                  borderRadius: '16px',
-                  boxShadow: '0 12px 28px rgba(15, 23, 42, 0.12)',
-                  border: '1px solid #E2E8F0',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.65rem',
-                  zIndex: 2
-                }}
-              >
-                <div className="hero-badge-icon-box" style={{
-                  width: '34px',
-                  height: '34px',
-                  borderRadius: '10px',
-                  background: '#FEF3C7',
-                  color: '#D97706',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}>
-                  <GoogleIcon size={18} />
-                </div>
-                <div>
-                  <div className="hero-badge-val" style={{ fontSize: '0.86rem', fontWeight: 800, color: '#0F172A' }}>
-                    688+ Google Reviews
-                  </div>
-                  <div className="hero-badge-sub" style={{ fontSize: '0.72rem', color: '#059669', fontWeight: 700 }}>
-                    5.0 ★ Unanimous Rating
-                  </div>
-                </div>
-              </div>
-            </div>
+            {renderHeroDoctorCard()}
           </div>
 
         </div>

@@ -512,6 +512,11 @@ section {
   .hero-visual-desktop {
     display: none !important;
   }
+  .hero-visual-mobile {
+    display: flex !important;
+    justify-content: center !important;
+    margin: 1.25rem 0 1.5rem 0 !important;
+  }
   .founder-portrait-desktop {
     display: none !important;
   }
@@ -621,7 +626,85 @@ section {
     display: none !important;
   }
   .hero-visual-mobile {
-    display: none !important;
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+    margin: 1.15rem 0 1.65rem 0 !important;
+    position: relative !important;
+  }
+  .hero-visual-mobile .hero-portrait-card {
+    max-width: 275px !important;
+    margin: 0 auto !important;
+    padding: 7px !important;
+    border-radius: 20px !important;
+    box-shadow: 0 16px 36px -10px rgba(15, 23, 42, 0.12), 0 0 25px -4px rgba(13, 148, 136, 0.2) !important;
+  }
+  .hero-visual-mobile .hero-photo-overlay {
+    height: 38% !important;
+    padding: 0.75rem 0.85rem !important;
+  }
+  .hero-visual-mobile .hero-doc-name {
+    font-size: 1.05rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 2px !important;
+  }
+  .hero-visual-mobile .hero-doc-degrees {
+    font-size: 0.68rem !important;
+    line-height: 1.2 !important;
+  }
+  .hero-visual-mobile .hero-float-badge-left {
+    position: absolute !important;
+    top: -10px !important;
+    left: -4px !important;
+    padding: 0.35rem 0.65rem !important;
+    border-radius: 12px !important;
+    gap: 0.45rem !important;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12) !important;
+    background: #FFFFFF !important;
+    z-index: 5 !important;
+  }
+  .hero-visual-mobile .hero-float-badge-right {
+    position: absolute !important;
+    bottom: -12px !important;
+    right: -4px !important;
+    padding: 0.35rem 0.7rem !important;
+    border-radius: 12px !important;
+    gap: 0.45rem !important;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12) !important;
+    background: #FFFFFF !important;
+    z-index: 5 !important;
+  }
+  .hero-visual-mobile .hero-badge-icon-box {
+    width: 26px !important;
+    height: 26px !important;
+    border-radius: 8px !important;
+    flex-shrink: 0 !important;
+  }
+  .hero-visual-mobile .hero-badge-icon-box svg {
+    width: 14px !important;
+    height: 14px !important;
+  }
+  .hero-visual-mobile .hero-badge-tag {
+    font-size: 0.58rem !important;
+    letter-spacing: 0.04em !important;
+    line-height: 1.1 !important;
+    color: #64748B !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+  }
+  .hero-visual-mobile .hero-badge-val {
+    font-size: 0.74rem !important;
+    font-weight: 800 !important;
+    line-height: 1.2 !important;
+    color: #0F172A !important;
+    white-space: nowrap !important;
+  }
+  .hero-visual-mobile .hero-badge-sub {
+    font-size: 0.65rem !important;
+    font-weight: 700 !important;
+    line-height: 1.1 !important;
+    color: #059669 !important;
+    white-space: nowrap !important;
   }
 
   .hero-cta-row {

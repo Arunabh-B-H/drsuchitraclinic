@@ -58,9 +58,10 @@ export default function PatientProof() {
   return (
     <section
       id="reviews"
+      className="clinic-section"
       style={{
-        paddingTop: '6rem',
-        paddingBottom: '6rem',
+        paddingTop: '3.5rem',
+        paddingBottom: '3.5rem',
         backgroundColor: '#FAFAF9',
         borderTop: '1px solid #E2E8F0',
         borderBottom: '1px solid #E2E8F0',
@@ -117,54 +118,50 @@ export default function PatientProof() {
           </p>
 
           {/* Treatment Category Filter Pills */}
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '0.55rem',
-            flexWrap: 'wrap',
-            maxWidth: '850px',
-            margin: '0 auto'
-          }}>
-            {tags.map((tag) => {
-              const active = selectedTag === tag.id;
-              return (
-                <button
-                  key={tag.id}
-                  onClick={() => {
-                    setSelectedTag(tag.id);
-                    setStartIndex(0);
-                  }}
-                  style={{
-                    padding: '0.5rem 1.15rem',
-                    borderRadius: '9999px',
-                    fontSize: '0.85rem',
-                    fontWeight: active ? 700 : 600,
-                    cursor: 'pointer',
-                    border: '1px solid',
-                    borderColor: active ? '#0D9488' : '#E2E8F0',
-                    background: active ? '#0D9488' : '#FFFFFF',
-                    color: active ? '#FFFFFF' : '#475569',
-                    boxShadow: active ? '0 4px 14px rgba(13, 148, 136, 0.25)' : 'var(--shadow-sm)',
-                    transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)'
-                  }}
-                  onMouseEnter={(e) => {
-                    if (!active) {
-                      e.currentTarget.style.borderColor = '#0D9488';
-                      e.currentTarget.style.color = '#0D9488';
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (!active) {
-                      e.currentTarget.style.borderColor = '#E2E8F0';
-                      e.currentTarget.style.color = '#475569';
-                    }
-                  }}
-                >
-                  {tag.label}
-                </button>
-              );
-            })}
+          <div className="review-tags-wrapper">
+            <div className="review-tags-container">
+              {tags.map((tag) => {
+                const active = selectedTag === tag.id;
+                return (
+                  <button
+                    key={tag.id}
+                    onClick={() => {
+                      setSelectedTag(tag.id);
+                      setStartIndex(0);
+                    }}
+                    className={`review-tag-btn ${active ? 'is-active' : ''}`}
+                    style={{
+                      padding: '0.5rem 1.15rem',
+                      borderRadius: '9999px',
+                      fontSize: '0.85rem',
+                      fontWeight: active ? 700 : 600,
+                      cursor: 'pointer',
+                      border: '1px solid',
+                      borderColor: active ? '#0D9488' : '#E2E8F0',
+                      background: active ? '#0D9488' : '#FFFFFF',
+                      color: active ? '#FFFFFF' : '#475569',
+                      boxShadow: active ? '0 4px 14px rgba(13, 148, 136, 0.25)' : 'var(--shadow-sm)',
+                      transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
+                      whiteSpace: 'nowrap'
+                    }}
+                    onMouseEnter={(e) => {
+                      if (!active) {
+                        e.currentTarget.style.borderColor = '#0D9488';
+                        e.currentTarget.style.color = '#0D9488';
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (!active) {
+                        e.currentTarget.style.borderColor = '#E2E8F0';
+                        e.currentTarget.style.color = '#475569';
+                      }
+                    }}
+                  >
+                    {tag.label}
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </div>
 

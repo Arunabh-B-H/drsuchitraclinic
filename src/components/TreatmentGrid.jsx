@@ -18,16 +18,14 @@ export default function TreatmentGrid({ onSelectTreatment }) {
   };
 
   return (
-    <section id="services" style={{
-      paddingTop: '5.5rem',
-      paddingBottom: '5.5rem',
+    <section id="services" className="clinic-section treatment-section" style={{
       backgroundColor: '#FAFAF9'
     }}>
       <div className="container">
         
         {/* Header */}
-        <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-          <div className="section-tag">
+        <div className="treatment-header" style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
+          <div className="section-tag treatment-section-tag">
             <Sparkles size={14} />
             <span>Specialized Clinical Taxonomy</span>
           </div>
@@ -39,30 +37,39 @@ export default function TreatmentGrid({ onSelectTreatment }) {
           </p>
 
           {/* Interactive 3 Tabs */}
-          <div style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            background: '#FFFFFF',
-            padding: '0.45rem',
-            borderRadius: '16px',
-            border: '1px solid #E2E8F0',
-            boxShadow: '0 4px 15px rgba(15, 23, 42, 0.04)',
-            gap: '0.45rem',
-            maxWidth: '100%',
-            overflowX: 'auto'
-          }}>
+          <div 
+            className="treatment-tabs-container"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              background: '#FFFFFF',
+              padding: '0.45rem',
+              borderRadius: '16px',
+              border: '1px solid #E2E8F0',
+              boxShadow: '0 4px 15px rgba(15, 23, 42, 0.04)',
+              gap: '0.45rem',
+              maxWidth: '100%',
+              overflowX: 'auto'
+            }}
+          >
             {SERVICE_CATEGORIES.map((cat) => {
               const TabIcon = getTabIcon(cat.id);
               const isActive = activeTab === cat.id;
+              const shortLabels = {
+                aesthetic: "Aesthetics & Peels",
+                clinical: "Clinical Dermatology",
+                trichology: "Hair Fall & PRP"
+              };
 
               return (
                 <button
                   key={cat.id}
                   onClick={() => setActiveTab(cat.id)}
+                  className="treatment-tab-btn"
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
-                    gap: '0.6rem',
+                    gap: '0.5rem',
                     padding: '0.75rem 1.45rem',
                     borderRadius: '12px',
                     fontWeight: 700,
@@ -75,8 +82,9 @@ export default function TreatmentGrid({ onSelectTreatment }) {
                     whiteSpace: 'nowrap'
                   }}
                 >
-                  <TabIcon size={17} color={isActive ? '#FFFFFF' : '#0D9488'} />
-                  <span>{cat.title}</span>
+                  <TabIcon size={16} color={isActive ? '#FFFFFF' : '#0D9488'} />
+                  <span className="tab-label-full">{cat.title}</span>
+                  <span className="tab-label-mobile">{shortLabels[cat.id] || cat.title}</span>
                 </button>
               );
             })}
@@ -84,18 +92,21 @@ export default function TreatmentGrid({ onSelectTreatment }) {
         </div>
 
         {/* Category Description Banner */}
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          flexWrap: 'wrap',
-          gap: '1rem',
-          marginBottom: '2rem',
-          padding: '1rem 1.5rem',
-          background: '#FFFFFF',
-          borderRadius: '14px',
-          border: '1px solid #E2E8F0'
-        }}>
+        <div 
+          className="category-banner"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+            gap: '1rem',
+            marginBottom: '2rem',
+            padding: '1rem 1.5rem',
+            background: '#FFFFFF',
+            borderRadius: '14px',
+            border: '1px solid #E2E8F0'
+          }}
+        >
           <div>
             <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#0D9488', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
               Category Highlight
@@ -115,7 +126,7 @@ export default function TreatmentGrid({ onSelectTreatment }) {
 
         {/* Service Cards Grid */}
         <div 
-          className="lalle-stagger"
+          className="lalle-stagger treatment-cards-grid"
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
@@ -125,7 +136,7 @@ export default function TreatmentGrid({ onSelectTreatment }) {
           {currentCategory.services.map((service) => (
             <div
               key={service.id}
-              className="glass-card"
+              className="glass-card treatment-card"
               style={{
                 display: 'flex',
                 flexDirection: 'column',

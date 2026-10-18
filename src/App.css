@@ -66,74 +66,149 @@
   }
 }
 
-/* Floating Side Connect Dock (Fixed on LEFT for all screens) */
+/* =========================================================================
+   Floating Connect Dock & AI Bot - Unified Luxury Design
+   - Left: Signature Vertical Capsule Dock (Desktop: Center-Left; Mobile: Bottom-Left)
+   - Right: Circular / Pill AI Bot Launcher (Desktop: Pill; Mobile: Circular Avatar)
+   ========================================================================= */
+
+/* Floating Side Connect Dock (Desktop: Vertically Centered on Left) */
 .side-connect-bar {
-  position: fixed;
-  left: 18px;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 90;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  position: fixed !important;
+  left: 16px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  z-index: 90 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
 }
 
-/* Floating AI Bot Launcher (Fixed on RIGHT for all screens) */
+/* Floating AI Bot Launcher (Desktop: Bottom-Right Pill) */
 .ai-bot-floating-trigger {
-  position: fixed;
-  right: 20px;
-  bottom: 22px;
-  z-index: 90;
+  position: fixed !important;
+  right: 20px !important;
+  bottom: 22px !important;
+  z-index: 90 !important;
   display: flex !important;
 }
 
-@media (max-width: 768px) {
-  /* On mobile phones, position Connect on bottom-left and AI bot on bottom-right */
+/* Mobile & Tablet Optimizations (< 1024px) - Exactly as shown in Reference Image 2 */
+@media (max-width: 1023px) {
+  /* Connect Capsule: Pinned neatly to bottom-left */
   .side-connect-bar {
     position: fixed !important;
-    left: 12px !important;
-    bottom: 16px !important;
+    left: 10px !important;
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px)) !important;
     top: auto !important;
     transform: none !important;
     z-index: 90 !important;
   }
   .connect-dock-capsule {
-    padding: 8px 4px !important;
-    gap: 6px !important;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5) !important;
+    padding: 7px 4px !important;
+    gap: 5px !important;
+    border-radius: 9999px !important;
+    background-color: rgba(15, 23, 42, 0.94) !important;
+    border: 1px solid rgba(45, 212, 191, 0.3) !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.55), 0 0 15px rgba(13, 148, 136, 0.2) !important;
   }
   .connect-dock-btn {
-    width: 36px !important;
-    height: 36px !important;
+    width: 34px !important;
+    height: 34px !important;
   }
+  .connect-dock-tooltip {
+    display: none !important; /* Hide tooltips on touch devices to prevent lingering overlays */
+  }
+
+  /* AI Bot Launcher: Pinned neatly to bottom-right */
   .ai-bot-floating-trigger {
     position: fixed !important;
     right: 12px !important;
-    bottom: 16px !important;
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px)) !important;
     z-index: 90 !important;
     display: flex !important;
   }
+}
+
+@media (max-width: 640px) {
+  .ai-launcher-text {
+    display: none !important; /* Turns into compact circular luxury avatar launcher on phones */
+  }
   .ai-launcher-btn {
-    padding: 0.45rem 0.85rem 0.45rem 0.45rem !important;
+    width: 44px !important;
+    height: 44px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    justify-content: center !important;
+    align-items: center !important;
     box-shadow: 0 8px 24px -2px rgba(13, 148, 136, 0.5) !important;
+  }
+  .ai-launcher-btn > div:first-child {
+    margin: 0 !important;
+  }
+}
+
+/* Animations for Mobile Speed Dial */
+@keyframes speedDialPop {
+  0% {
+    opacity: 0;
+    transform: translateY(16px) scale(0.92);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes slideUpFade {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================================
+   Balanced Section Vertical Rhythm - Eliminates Awkward Big Gaps
+   ========================================================================= */
+.clinic-section,
+section {
+  padding-top: 3.5rem !important;
+  padding-bottom: 3.5rem !important;
+}
+
+/* Section Header Spacing */
+.section-subtitle {
+  margin-bottom: 2rem !important;
+}
+
+@media (max-width: 768px) {
+  .clinic-section,
+  section {
+    padding-top: 2.25rem !important;
+    padding-bottom: 2.25rem !important;
+  }
+  .section-title {
+    font-size: 1.75rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  .section-subtitle {
+    font-size: 0.94rem !important;
+    margin-bottom: 1.5rem !important;
   }
 }
 
 @media (max-width: 480px) {
-  .ai-launcher-text {
-    display: none !important; /* Turns into a compact circular luxury avatar launcher on small phones */
+  .clinic-section,
+  section {
+    padding-top: 1.85rem !important;
+    padding-bottom: 1.85rem !important;
   }
-  .ai-launcher-btn {
-    padding: 5px !important;
-    border-radius: 50% !important;
-  }
-  .side-connect-bar {
-    left: 10px !important;
-    bottom: 14px !important;
-  }
-  .ai-bot-floating-trigger {
-    right: 10px !important;
-    bottom: 14px !important;
+  .section-title {
+    font-size: 1.55rem !important;
   }
 }
 
@@ -212,76 +287,693 @@
   }
 }
 
-/* Concern Selector */
-@media (max-width: 768px) {
-  .concern-detail-grid {
-    grid-template-columns: 1fr !important;
-    gap: 1.5rem !important;
-  }
+/* Concern Selector - High-Performance Responsive Clean Layout */
+.concern-pills-wrapper {
+  position: relative;
+  width: 100%;
+  margin-top: 1.5rem;
 }
 
-/* Founder Section */
-@media (max-width: 1024px) {
-  .founder-grid {
-    grid-template-columns: 1fr !important;
-    gap: 2.5rem !important;
-  }
+.concern-pills-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
 }
 
-/* Comparison Table Mobile */
-@media (max-width: 768px) {
-  .comparison-header {
-    display: none !important;
-  }
-  .comparison-row {
-    grid-template-columns: 1fr !important;
+.concern-swipe-hint {
+  display: none;
+  text-align: center;
+  font-size: 0.76rem;
+  color: #0D9488;
+  font-weight: 700;
+  margin-top: 0.65rem;
+  letter-spacing: 0.02em;
+}
+
+@media (min-width: 641px) and (max-width: 1023px) {
+  .concern-pills-container {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
     gap: 0.65rem !important;
-    padding: 1.25rem !important;
-  }
-  .warning-banner {
-    flex-direction: column !important;
-    text-align: left !important;
-  }
-}
-
-/* Interactive Booking Grid */
-@media (max-width: 960px) {
-  .booking-grid {
-    grid-template-columns: 1fr !important;
+    max-width: 720px !important;
+    margin: 0 auto !important;
   }
 }
 
 @media (max-width: 640px) {
-  .booking-card {
-    padding: 1.25rem !important;
+  .concern-pills-wrapper {
+    margin-left: -1rem;
+    margin-right: -1rem;
+    padding: 0 1rem;
+    overflow: hidden;
   }
-  .patient-inputs-grid {
+  .concern-pills-container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    gap: 0.55rem !important;
+    padding: 0.35rem 0.5rem 0.5rem !important;
+    scroll-snap-type: x mandatory !important;
+  }
+  .concern-pills-container::-webkit-scrollbar {
+    display: none !important;
+  }
+  .concern-pill-btn {
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+    scroll-snap-align: start !important;
+    padding: 0.6rem 1rem !important;
+    font-size: 0.84rem !important;
+  }
+  .concern-swipe-hint {
+    display: block !important;
+  }
+  .concern-detail-card {
+    padding: 1.35rem 1.15rem !important;
+    border-radius: 18px !important;
+  }
+  .concern-card-header {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  .concern-book-btn {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+  .concern-detail-grid {
     grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
   }
 }
 
-/* Logistics Grid */
-@media (max-width: 960px) {
+/* Patient Reviews Filter Tags - Responsive Layout */
+.review-tags-wrapper {
+  position: relative;
+  width: 100%;
+  margin: 0 auto 1.75rem auto;
+  max-width: 850px;
+}
+
+.review-tags-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 641px) and (max-width: 1023px) {
+  .review-tags-container {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0.55rem !important;
+    max-width: 650px !important;
+    margin: 0 auto !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .review-tags-wrapper {
+    margin-left: -1rem;
+    margin-right: -1rem;
+    padding: 0 1rem;
+    overflow: hidden;
+    margin-bottom: 1.25rem;
+  }
+  .review-tags-container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    gap: 0.45rem !important;
+    padding: 0.25rem 0.5rem 0.45rem !important;
+    scroll-snap-type: x mandatory !important;
+  }
+  .review-tags-container::-webkit-scrollbar {
+    display: none !important;
+  }
+  .review-tag-btn {
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+    scroll-snap-align: start !important;
+    padding: 0.45rem 0.95rem !important;
+    font-size: 0.8rem !important;
+  }
+}
+
+/* Hero Pillar Slider Mobile Optimization */
+@media (max-width: 640px) {
+  .hero-pillar-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.65rem !important;
+  }
+  .hero-pillar-tabs {
+    width: 100% !important;
+  }
+}
+
+/* Treatment Tabs Labels - Desktop Default */
+.tab-label-mobile {
+  display: none !important;
+}
+.tab-label-full {
+  display: inline !important;
+}
+
+/* =========================================================================
+   Comprehensive Multi-Screen Responsive Design System
+   Resizes text, font sizes, containers, cards & components without altering aesthetic
+   ========================================================================= */
+
+/* Hero Visual Desktop & Mobile Default Visibility */
+.hero-visual-desktop {
+  display: flex !important;
+}
+.hero-visual-mobile {
+  display: none !important;
+}
+
+/* Hero Grid Layout */
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: 3.5rem;
+  align-items: center;
+}
+
+/* Founder Bio Default Styles */
+.founder-bio-p {
+  font-size: 0.98rem;
+  line-height: 1.72;
+  color: #334155;
+  margin-bottom: 1.25rem;
+}
+.founder-bio-p2 {
+  margin-bottom: 1.75rem;
+}
+.founder-action-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.founder-rating-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: #64748B;
+}
+
+/* Founder Portrait Card Visibility */
+.founder-portrait-desktop {
+  display: block !important;
+}
+.founder-portrait-mobile {
+  display: none !important;
+}
+
+/* Tablet & Intermediate Screens (641px - 1024px) */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  .hero-visual-desktop {
+    display: none !important;
+  }
+  .founder-portrait-desktop {
+    display: none !important;
+  }
+  .founder-portrait-mobile {
+    display: block !important;
+    margin: 1.5rem 0 2rem 0 !important;
+  }
+  .hero-main-heading {
+    font-size: clamp(2.1rem, 3.8vw, 2.75rem) !important;
+  }
+  .founder-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+  }
+  .treatment-cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+  .booking-grid {
+    grid-template-columns: 1fr !important;
+  }
   .logistics-grid {
     grid-template-columns: 1fr !important;
   }
   .logistics-suite-col {
     height: auto !important;
   }
-}
-
-/* Footer Grid */
-@media (max-width: 1024px) {
   .footer-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     gap: 2.5rem !important;
   }
 }
 
+/* Mobile Devices (<= 640px) */
 @media (max-width: 640px) {
+  /* Global Resizing */
+  .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  
+  .clinic-section,
+  section {
+    padding-top: 1.75rem !important;
+    padding-bottom: 1.75rem !important;
+  }
+  .founder-section {
+    padding-top: 2rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+  .treatment-section {
+    padding-top: 1.75rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .section-tag {
+    font-size: 0.72rem !important;
+    padding: 0.25rem 0.7rem !important;
+    margin-bottom: 0.65rem !important;
+  }
+
+  .section-title {
+    font-size: clamp(1.35rem, 5.5vw, 1.65rem) !important;
+    margin-bottom: 0.45rem !important;
+    line-height: 1.25 !important;
+  }
+
+  .section-subtitle {
+    font-size: 0.88rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  /* Navbar Brand Text Resizing */
+  .navbar-brand-name {
+    font-size: 1.08rem !important;
+  }
+  .navbar-brand-badge {
+    font-size: 0.65rem !important;
+    padding: 0.1rem 0.4rem !important;
+  }
+  .navbar-brand-sub {
+    font-size: 0.7rem !important;
+  }
+
+  /* Hero Section Resizing */
+  .hero-section {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+  .hero-main-heading {
+    font-size: clamp(1.68rem, 6.8vw, 2.15rem) !important;
+    line-height: 1.2 !important;
+    margin-bottom: 1rem !important;
+  }
+  .hero-sub-text {
+    font-size: 0.94rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  /* Hero Visual Desktop & Mobile Visibility */
+  .hero-visual-desktop {
+    display: none !important;
+  }
+  .hero-visual-mobile {
+    display: none !important;
+  }
+
+  .hero-cta-row {
+    flex-direction: column !important;
+    gap: 0.65rem !important;
+    width: 100% !important;
+    margin-bottom: 1.25rem !important;
+  }
+  .hero-cta-row .btn-primary,
+  .hero-cta-row .btn-whatsapp {
+    width: 100% !important;
+    padding: 0.85rem 1.25rem !important;
+    font-size: 0.95rem !important;
+    justify-content: center !important;
+  }
+  .hero-timing-strip {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.45rem !important;
+    padding: 0.75rem 0.95rem !important;
+    font-size: 0.8rem !important;
+  }
+  .hero-pillar-box {
+    padding: 0.95rem 1rem !important;
+    border-radius: 16px !important;
+    margin-bottom: 1.35rem !important;
+  }
+  .hero-stats-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    padding: 1rem 0.85rem !important;
+    gap: 0.85rem !important;
+    border-radius: 16px !important;
+  }
+  .stat-card {
+    border-right: none !important;
+  }
+  .stat-number {
+    font-size: 1.55rem !important;
+  }
+  .stat-label {
+    font-size: 0.82rem !important;
+  }
+  .stat-desc {
+    font-size: 0.72rem !important;
+  }
+
+  /* Founder Section Resizing */
+  .founder-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+  .founder-portrait-desktop {
+    display: none !important;
+  }
+  .founder-portrait-mobile {
+    display: block !important;
+    margin: 1.25rem 0 1.75rem 0 !important;
+  }
+  .founder-portrait-frame {
+    max-width: 295px !important;
+    margin: 0 auto !important;
+    border-radius: 22px !important;
+    padding: 8px !important;
+  }
+  .founder-badge-pill {
+    left: 8px !important;
+    right: 8px !important;
+    bottom: -16px !important;
+    padding: 0.55rem 0.75rem !important;
+    border-radius: 12px !important;
+  }
+  .founder-pedigree-tags {
+    margin-top: 1.85rem !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  .founder-pedigree-tags > div {
+    justify-content: center !important;
+  }
+  .founder-name-heading {
+    font-size: clamp(1.55rem, 6.2vw, 2.1rem) !important;
+  }
+  .founder-degrees {
+    font-size: 0.94rem !important;
+  }
+  .founder-role {
+    font-size: 0.8rem !important;
+    margin-bottom: 1.25rem !important;
+  }
+  .founder-quote-box {
+    padding: 1rem 1.15rem !important;
+    margin-bottom: 1.25rem !important;
+    border-radius: 0 14px 14px 0 !important;
+  }
+  .founder-quote-box p {
+    font-size: 0.94rem !important;
+    line-height: 1.5 !important;
+  }
+  
+  /* Founder Bio Paragraphs Resizing (Addresses User Request Image 2) */
+  .founder-bio-p {
+    font-size: 0.84rem !important;
+    line-height: 1.55 !important;
+    color: #475569 !important;
+    margin-bottom: 0.75rem !important;
+  }
+  .founder-bio-p2 {
+    margin-bottom: 1.15rem !important;
+  }
+  
+  /* Founder Action Row & CTA Resizing (Addresses User Request Image 1) */
+  .founder-action-row {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    margin-top: 0.5rem !important;
+    width: 100% !important;
+  }
+  .founder-cta-btn {
+    width: auto !important;
+    max-width: 100% !important;
+    padding: 0.65rem 1.25rem !important;
+    font-size: 0.86rem !important;
+    font-weight: 700 !important;
+    border-radius: 12px !important;
+    justify-content: center !important;
+    box-shadow: 0 4px 14px rgba(13, 148, 136, 0.25) !important;
+  }
+  .founder-rating-badge {
+    font-size: 0.76rem !important;
+    gap: 0.4rem !important;
+    color: #64748B !important;
+    justify-content: center !important;
+  }
+
+  /* Treatment Grid Resizing (Addresses User Request Image 1) */
+  .treatment-header {
+    margin-bottom: 1.15rem !important;
+  }
+  .treatment-section-tag {
+    font-size: 0.68rem !important;
+    padding: 0.22rem 0.65rem !important;
+    gap: 0.35rem !important;
+    margin-bottom: 0.5rem !important;
+    letter-spacing: 0.05em !important;
+  }
+  .treatment-section .section-title {
+    font-size: clamp(1.22rem, 5.2vw, 1.48rem) !important;
+    line-height: 1.25 !important;
+    margin-bottom: 0.45rem !important;
+    letter-spacing: -0.02em !important;
+  }
+  .treatment-section .section-subtitle {
+    font-size: 0.82rem !important;
+    line-height: 1.45 !important;
+    color: #64748B !important;
+    margin-bottom: 0.85rem !important;
+    max-width: 95% !important;
+  }
+  .tab-label-full {
+    display: none !important;
+  }
+  .tab-label-mobile {
+    display: inline !important;
+  }
+  .treatment-tabs-container {
+    display: flex !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    justify-content: flex-start !important;
+    padding: 0.22rem !important;
+    gap: 0.28rem !important;
+    margin-bottom: 0.95rem !important;
+    border-radius: 14px !important;
+  }
+  .treatment-tabs-container::-webkit-scrollbar {
+    display: none !important;
+  }
+  .treatment-tab-btn {
+    padding: 0.42rem 0.72rem !important;
+    font-size: 0.74rem !important;
+    border-radius: 10px !important;
+    gap: 0.35rem !important;
+    flex-shrink: 0 !important;
+  }
+  .treatment-tab-btn svg {
+    width: 14px !important;
+    height: 14px !important;
+  }
+  .category-banner {
+    padding: 0.65rem 0.85rem !important;
+    margin-bottom: 1rem !important;
+    border-radius: 12px !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.25rem !important;
+  }
+  .treatment-cards-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  .treatment-card {
+    padding: 1.2rem 1.1rem !important;
+    border-radius: 18px !important;
+  }
+
+  /* Why Doctor Led Resizing */
+  .warning-banner {
+    padding: 1.1rem 1.1rem !important;
+    gap: 0.75rem !important;
+    border-radius: 16px !important;
+    flex-direction: column !important;
+    text-align: left !important;
+  }
+  .comparison-header {
+    display: none !important;
+  }
+  .comparison-row {
+    grid-template-columns: 1fr !important;
+    gap: 0.55rem !important;
+    padding: 0.95rem 1rem !important;
+    font-size: 0.85rem !important;
+  }
+  .why-trust-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0.65rem !important;
+    margin-top: 2rem !important;
+  }
+  .why-trust-card {
+    padding: 0.85rem 0.75rem !important;
+    gap: 0.65rem !important;
+    border-radius: 14px !important;
+  }
+  .why-trust-icon {
+    width: 22px !important;
+    height: 22px !important;
+  }
+  .why-trust-card div > div:first-child {
+    font-size: 0.84rem !important;
+  }
+  .why-trust-card div > div:last-child {
+    font-size: 0.72rem !important;
+  }
+
+  /* Self-Triage Quiz Resizing */
+  .quiz-box {
+    padding: 1.35rem 1.1rem !important;
+    border-radius: 18px !important;
+  }
+  .quiz-box h3 {
+    font-size: 1.25rem !important;
+  }
+  .quiz-box p {
+    font-size: 0.84rem !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  /* Patient Reviews Carousel Card Resizing */
+  .google-review-card {
+    padding: 1.35rem 1.15rem !important;
+    border-radius: 18px !important;
+  }
+  .google-review-card p {
+    font-size: 0.88rem !important;
+    line-height: 1.58 !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  /* Interactive Booking Resizing */
+  .booking-card {
+    padding: 1.25rem 1.1rem !important;
+    border-radius: 18px !important;
+  }
+  .patient-inputs-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+  }
+
+  /* Logistics Grid Resizing */
+  .logistics-quick-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.65rem !important;
+  }
+  .logistics-card {
+    padding: 0.85rem 1rem !important;
+  }
+  .logistics-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .logistics-suite-col {
+    height: auto !important;
+  }
+  .logistics-map-card {
+    height: 250px !important;
+  }
+
+  /* FAQ Accordion Resizing */
+  .faq-btn {
+    padding: 0.95rem 1.15rem !important;
+    gap: 0.75rem !important;
+  }
+  .faq-q-text {
+    font-size: 0.92rem !important;
+  }
+  .faq-a-box {
+    padding: 0 1.15rem 1.15rem 1.15rem !important;
+    font-size: 0.86rem !important;
+    line-height: 1.55 !important;
+  }
+
+  /* Footer Resizing & Clear Margin for Floating Bottom Dock */
+  footer {
+    padding-top: 3rem !important;
+    padding-bottom: 6.5rem !important;
+  }
   .footer-grid {
     grid-template-columns: 1fr !important;
     gap: 2rem !important;
+  }
+}
+
+/* Extra-Small Mobile Devices (<= 380px: iPhone SE, Galaxy Z Flip cover, etc.) */
+@media (max-width: 380px) {
+  .container {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+  .navbar-brand-name {
+    font-size: 0.98rem !important;
+  }
+  .navbar-brand-badge {
+    font-size: 0.6rem !important;
+    padding: 0.08rem 0.35rem !important;
+  }
+  .navbar-brand-sub {
+    font-size: 0.66rem !important;
+  }
+  .hero-float-badge-left {
+    left: 4px !important;
+    top: 8px !important;
+  }
+  .hero-float-badge-right {
+    right: 4px !important;
+    bottom: 10px !important;
+  }
+  .why-trust-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .hero-stats-strip {
+    grid-template-columns: 1fr !important;
   }
 }
 

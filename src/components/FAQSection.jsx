@@ -10,9 +10,9 @@ export default function FAQSection() {
   };
 
   return (
-    <section id="faq" style={{
-      paddingTop: '5.5rem',
-      paddingBottom: '5.5rem',
+    <section id="faq" className="clinic-section" style={{
+      paddingTop: '3.5rem',
+      paddingBottom: '3.5rem',
       backgroundColor: '#FAFAF9',
       borderTop: '1px solid #E2E8F0'
     }}>
@@ -47,6 +47,7 @@ export default function FAQSection() {
             return (
               <div
                 key={faq.q}
+                className="faq-card"
                 style={{
                   background: '#FFFFFF',
                   borderRadius: '16px',
@@ -60,6 +61,7 @@ export default function FAQSection() {
                 <button
                   type="button"
                   onClick={() => toggleFaq(index)}
+                  className="faq-btn"
                   style={{
                     width: '100%',
                     padding: '1.25rem 1.5rem',
@@ -72,11 +74,14 @@ export default function FAQSection() {
                     gap: '1rem'
                   }}
                 >
-                  <span style={{
-                    fontSize: '1.02rem',
-                    fontWeight: 700,
-                    color: isOpen ? '#0D9488' : '#0F172A'
-                  }}>
+                  <span 
+                    className="faq-q-text"
+                    style={{
+                      fontSize: '1.02rem',
+                      fontWeight: 700,
+                      color: isOpen ? '#0D9488' : '#0F172A'
+                    }}
+                  >
                     {faq.q}
                   </span>
 
@@ -96,13 +101,16 @@ export default function FAQSection() {
                 </button>
 
                 {isOpen && (
-                  <div style={{
-                    padding: '0 1.5rem 1.5rem 1.5rem',
-                    fontSize: '0.94rem',
-                    lineHeight: 1.68,
-                    color: '#475569',
-                    borderTop: '1px solid #F1F5F9'
-                  }}>
+                  <div 
+                    className="faq-a-box"
+                    style={{
+                      padding: '0 1.5rem 1.5rem 1.5rem',
+                      fontSize: '0.94rem',
+                      lineHeight: 1.68,
+                      color: '#475569',
+                      borderTop: '1px solid #F1F5F9'
+                    }}
+                  >
                     <p style={{ marginTop: '0.85rem' }}>
                       {faq.a}
                     </p>

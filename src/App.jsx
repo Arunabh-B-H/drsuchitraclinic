@@ -83,61 +83,61 @@ export default function App() {
         />
 
         {/* 4. Interactive 1-Click Concern Selector */}
-        <section className="scroll-reveal">
+        <div className="scroll-reveal">
           <ConcernSelector 
             onSelectConcern={(concern) => scrollToBooking(concern)} 
           />
-        </section>
+        </div>
 
         {/* 5. High-Impact Founder Section with Modified Official Portrait */}
-        <section className="scroll-reveal">
+        <div className="scroll-reveal">
           <FounderSection 
             onBookClick={() => scrollToBooking()} 
           />
-        </section>
+        </div>
 
         {/* 6. Treatment Grid (3 Tabbed Categories) */}
-        <section className="scroll-reveal">
+        <div className="scroll-reveal">
           <TreatmentGrid 
             onSelectTreatment={(treatment) => scrollToBooking(treatment)} 
           />
-        </section>
+        </div>
 
         {/* 7. Why Dermatologist-Led? Trust Matrix */}
-        <section className="scroll-reveal">
+        <div className="scroll-reveal">
           <WhyDoctorLed 
             onBookClick={() => scrollToBooking()} 
           />
-        </section>
+        </div>
 
         {/* 8. 15-Second Skin & Hair Self-Triage Quiz */}
-        <section className="scroll-reveal">
+        <div className="scroll-reveal">
           <SelfTriageQuiz 
             onBookWithQuiz={(protocol) => scrollToBooking(protocol)} 
           />
-        </section>
+        </div>
 
         {/* 9. Verified Patient Proof & 5.0 Star Reviews */}
-        <section className="scroll-reveal">
+        <div className="scroll-reveal">
           <PatientProof />
-        </section>
+        </div>
 
         {/* 10. Interactive Booking & WhatsApp Lead Generator */}
-        <section className="scroll-reveal">
+        <div className="scroll-reveal">
           <InteractiveBooking 
             prefilledConcern={selectedConcern} 
           />
-        </section>
+        </div>
 
         {/* 11. Clinic Logistics, Maps & Hours */}
-        <section className="scroll-reveal">
+        <div className="scroll-reveal">
           <ClinicLogistics />
-        </section>
+        </div>
 
         {/* 12. Patient Guidance FAQs */}
-        <section className="scroll-reveal">
+        <div className="scroll-reveal">
           <FAQSection />
-        </section>
+        </div>
       </main>
 
       {/* 13. Medical Clinic Footer */}

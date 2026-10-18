@@ -100,9 +100,9 @@ export default function SelfTriageQuiz({ onBookWithQuiz }) {
   };
 
   return (
-    <section id="triage-quiz" style={{
-      paddingTop: '5rem',
-      paddingBottom: '5.5rem',
+    <section id="triage-quiz" className="clinic-section" style={{
+      paddingTop: '3.5rem',
+      paddingBottom: '3.5rem',
       background: 'linear-gradient(180deg, #F8FAFC 0%, #FAFAF9 100%)'
     }}>
       <div className="container">

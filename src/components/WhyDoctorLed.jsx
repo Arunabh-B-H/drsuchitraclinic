@@ -4,9 +4,9 @@ import { COMPARISON_DATA } from '../data/clinicData';
 
 export default function WhyDoctorLed({ onBookClick }) {
   return (
-    <section id="why-doctor-led" style={{
-      paddingTop: '5.5rem',
-      paddingBottom: '5.5rem',
+    <section id="why-doctor-led" className="clinic-section" style={{
+      paddingTop: '3.5rem',
+      paddingBottom: '3.5rem',
       backgroundColor: '#FFFFFF',
       borderTop: '1px solid #E2E8F0',
       borderBottom: '1px solid #E2E8F0'
@@ -125,13 +125,16 @@ export default function WhyDoctorLed({ onBookClick }) {
         </div>
 
         {/* 4 Trust Pill Badges */}
-        <div style={{
-          marginTop: '3.5rem',
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-          gap: '1.25rem'
-        }}>
-          <div style={{
+        <div 
+          className="why-trust-grid"
+          style={{
+            marginTop: '3.5rem',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+            gap: '1.25rem'
+          }}
+        >
+          <div className="why-trust-card" style={{
             padding: '1.35rem',
             borderRadius: '16px',
             background: '#F0FDFA',
@@ -140,7 +143,7 @@ export default function WhyDoctorLed({ onBookClick }) {
             alignItems: 'center',
             gap: '1rem'
           }}>
-            <ShieldCheck size={28} style={{ color: '#0D9488', flexShrink: 0 }} />
+            <ShieldCheck size={28} className="why-trust-icon" style={{ color: '#0D9488', flexShrink: 0 }} />
             <div>
               <div style={{ fontSize: '0.92rem', fontWeight: 800, color: '#0F172A' }}>
                 MD & DNB Certified
@@ -151,7 +154,7 @@ export default function WhyDoctorLed({ onBookClick }) {
             </div>
           </div>
 
-          <div style={{
+          <div className="why-trust-card" style={{
             padding: '1.35rem',
             borderRadius: '16px',
             background: '#F0FDFA',
@@ -160,7 +163,7 @@ export default function WhyDoctorLed({ onBookClick }) {
             alignItems: 'center',
             gap: '1rem'
           }}>
-            <Award size={28} style={{ color: '#0D9488', flexShrink: 0 }} />
+            <Award size={28} className="why-trust-icon" style={{ color: '#0D9488', flexShrink: 0 }} />
             <div>
               <div style={{ fontSize: '0.92rem', fontWeight: 800, color: '#0F172A' }}>
                 Ex-KIMSHEALTH
@@ -171,7 +174,7 @@ export default function WhyDoctorLed({ onBookClick }) {
             </div>
           </div>
 
-          <div style={{
+          <div className="why-trust-card" style={{
             padding: '1.35rem',
             borderRadius: '16px',
             background: '#F0FDFA',
@@ -180,7 +183,7 @@ export default function WhyDoctorLed({ onBookClick }) {
             alignItems: 'center',
             gap: '1rem'
           }}>
-            <HeartHandshake size={28} style={{ color: '#0D9488', flexShrink: 0 }} />
+            <HeartHandshake size={28} className="why-trust-icon" style={{ color: '#0D9488', flexShrink: 0 }} />
             <div>
               <div style={{ fontSize: '0.92rem', fontWeight: 800, color: '#0F172A' }}>
                 Zero Gimmicks
@@ -191,7 +194,7 @@ export default function WhyDoctorLed({ onBookClick }) {
             </div>
           </div>
 
-          <div style={{
+          <div className="why-trust-card" style={{
             padding: '1.35rem',
             borderRadius: '16px',
             background: '#F0FDFA',
@@ -200,7 +203,7 @@ export default function WhyDoctorLed({ onBookClick }) {
             alignItems: 'center',
             gap: '1rem'
           }}>
-            <CheckCircle2 size={28} style={{ color: '#0D9488', flexShrink: 0 }} />
+            <CheckCircle2 size={28} className="why-trust-icon" style={{ color: '#0D9488', flexShrink: 0 }} />
             <div>
               <div style={{ fontSize: '0.92rem', fontWeight: 800, color: '#0F172A' }}>
                 Affordable Fee

@@ -262,15 +262,15 @@ export default function AIBookingBot({ initialOpen = false, onClose }) {
 
   return (
     <>
-      {/* Floating Launcher Button (visible when bot is closed) - Fixed on RIGHT for all screens */}
+      {/* Floating Launcher Button (visible when bot is closed) */}
       {!isOpen && (
         <div 
           className="ai-bot-floating-trigger"
           style={{
             position: 'fixed',
-            bottom: '22px',
-            right: '20px',
-            zIndex: 90
+            bottom: 'calc(16px + env(safe-area-inset-bottom, 0px))',
+            right: '14px',
+            zIndex: 95
           }}
         >
           {/* Main Launcher Pill / Circle */}
@@ -284,9 +284,9 @@ export default function AIBookingBot({ initialOpen = false, onClose }) {
               gap: '0.65rem',
               background: 'linear-gradient(135deg, #0F172A 0%, #134E4A 55%, #0D9488 100%)',
               color: '#FFFFFF',
-              padding: '0.6rem 1.15rem 0.6rem 0.65rem',
+              padding: '0.55rem 1.1rem 0.55rem 0.55rem',
               borderRadius: '9999px',
-              boxShadow: '0 12px 30px -4px rgba(13, 148, 136, 0.45), 0 0 0 1px rgba(45, 212, 191, 0.3)',
+              boxShadow: '0 10px 28px -4px rgba(13, 148, 136, 0.5), 0 0 0 1px rgba(45, 212, 191, 0.35)',
               border: '1.5px solid rgba(255, 255, 255, 0.25)',
               cursor: 'pointer',
               transition: 'all 0.25s cubic-bezier(0.16, 1, 0.3, 1)'
@@ -297,7 +297,7 @@ export default function AIBookingBot({ initialOpen = false, onClose }) {
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.transform = 'translateY(0) scale(1)';
-              e.currentTarget.style.boxShadow = '0 12px 30px -4px rgba(13, 148, 136, 0.45), 0 0 0 1px rgba(45, 212, 191, 0.3)';
+              e.currentTarget.style.boxShadow = '0 10px 28px -4px rgba(13, 148, 136, 0.5), 0 0 0 1px rgba(45, 212, 191, 0.35)';
             }}
           >
             {/* Doctor Portrait Thumbnail with Live Green Dot */}
@@ -349,7 +349,7 @@ export default function AIBookingBot({ initialOpen = false, onClose }) {
           className="ai-bot-container"
           style={{
             position: 'fixed',
-            bottom: '20px',
+            bottom: 'calc(20px + env(safe-area-inset-bottom, 0px))',
             right: '20px',
             width: '400px',
             maxWidth: 'calc(100vw - 30px)',
@@ -358,7 +358,7 @@ export default function AIBookingBot({ initialOpen = false, onClose }) {
             backgroundColor: '#FFFFFF',
             borderRadius: '24px',
             boxShadow: '0 25px 60px -10px rgba(15, 23, 42, 0.25), 0 0 0 1px rgba(13, 148, 136, 0.2)',
-            zIndex: 100,
+            zIndex: 1000,
             display: 'flex',
             flexDirection: 'column',
             overflow: 'hidden',

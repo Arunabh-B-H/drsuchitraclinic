@@ -34,14 +34,17 @@ export default function ClinicLogistics() {
         </div>
 
         {/* Top 3 Quick Logistics Cards - Compact Modern Strip */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-          gap: '1rem',
-          marginBottom: '1.5rem'
-        }}>
+        <div 
+          className="logistics-quick-grid"
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+            gap: '1rem',
+            marginBottom: '1.5rem'
+          }}
+        >
           {/* Address Card */}
-          <div className="glass-card" style={{ padding: '1rem 1.25rem', backgroundColor: '#FAFAF9', display: 'flex', alignItems: 'flex-start', gap: '0.85rem' }}>
+          <div className="glass-card logistics-card" style={{ padding: '1rem 1.25rem', backgroundColor: '#FAFAF9', display: 'flex', alignItems: 'flex-start', gap: '0.85rem' }}>
             <div style={{
               width: '36px',
               height: '36px',
@@ -66,7 +69,7 @@ export default function ClinicLogistics() {
           </div>
 
           {/* Timings Card */}
-          <div className="glass-card" style={{ padding: '1rem 1.25rem', backgroundColor: '#FAFAF9', display: 'flex', alignItems: 'flex-start', gap: '0.85rem' }}>
+          <div className="glass-card logistics-card" style={{ padding: '1rem 1.25rem', backgroundColor: '#FAFAF9', display: 'flex', alignItems: 'flex-start', gap: '0.85rem' }}>
             <div style={{
               width: '36px',
               height: '36px',
@@ -92,7 +95,7 @@ export default function ClinicLogistics() {
           </div>
 
           {/* Fee & Contact Card */}
-          <div className="glass-card" style={{ padding: '1rem 1.25rem', backgroundColor: '#FAFAF9', display: 'flex', alignItems: 'flex-start', gap: '0.85rem' }}>
+          <div className="glass-card logistics-card" style={{ padding: '1rem 1.25rem', backgroundColor: '#FAFAF9', display: 'flex', alignItems: 'flex-start', gap: '0.85rem' }}>
             <div style={{
               width: '36px',
               height: '36px',
@@ -127,16 +130,19 @@ export default function ClinicLogistics() {
         }} className="logistics-grid">
           
           {/* Compact Interactive Map Card */}
-          <div style={{
-            borderRadius: '18px',
-            overflow: 'hidden',
-            border: '1px solid #E2E8F0',
-            boxShadow: '0 8px 24px rgba(15, 23, 42, 0.06)',
-            display: 'flex',
-            flexDirection: 'column',
-            height: '320px',
-            backgroundColor: '#F8FAFC'
-          }}>
+          <div 
+            className="logistics-map-card"
+            style={{
+              borderRadius: '18px',
+              overflow: 'hidden',
+              border: '1px solid #E2E8F0',
+              boxShadow: '0 8px 24px rgba(15, 23, 42, 0.06)',
+              display: 'flex',
+              flexDirection: 'column',
+              height: '320px',
+              backgroundColor: '#F8FAFC'
+            }}
+          >
             {/* Map Top Bar */}
             <div style={{
               background: '#0F172A',

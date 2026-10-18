@@ -42,7 +42,7 @@ export default function Navbar({ onBookClick, onOpenAI }) {
     <header style={{
       position: 'sticky',
       top: 0,
-      zIndex: 40,
+      zIndex: mobileMenuOpen ? 120 : 40,
       backgroundColor: isScrolled ? 'rgba(255, 255, 255, 0.96)' : 'rgba(250, 250, 249, 0.95)',
       backdropFilter: 'blur(16px)',
       WebkitBackdropFilter: 'blur(16px)',
@@ -88,43 +88,52 @@ export default function Navbar({ onBookClick, onOpenAI }) {
             S
           </div>
 
-          <div style={{ whiteSpace: 'nowrap' }}>
+          <div style={{ whiteSpace: 'nowrap' }} className="navbar-brand-text">
             <div style={{
               display: 'flex',
               alignItems: 'center',
               gap: '0.5rem'
             }}>
-              <span style={{
-                fontSize: '1.18rem',
-                fontWeight: 800,
-                color: '#0F172A',
-                letterSpacing: '-0.02em',
-                lineHeight: 1.2
-              }}>
+              <span 
+                className="navbar-brand-name"
+                style={{
+                  fontSize: '1.18rem',
+                  fontWeight: 800,
+                  color: '#0F172A',
+                  letterSpacing: '-0.02em',
+                  lineHeight: 1.2
+                }}
+              >
                 Dr. Suchithra C
               </span>
-              <span style={{
-                background: '#ECFDF5',
-                color: '#0D9488',
-                fontSize: '0.68rem',
-                fontWeight: 700,
-                padding: '0.12rem 0.45rem',
-                borderRadius: '9999px',
-                border: '1px solid #A7F3D0',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.2rem'
-              }}>
+              <span 
+                className="navbar-brand-badge"
+                style={{
+                  background: '#ECFDF5',
+                  color: '#0D9488',
+                  fontSize: '0.68rem',
+                  fontWeight: 700,
+                  padding: '0.12rem 0.45rem',
+                  borderRadius: '9999px',
+                  border: '1px solid #A7F3D0',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.2rem'
+                }}
+              >
                 <ShieldCheck size={11} /> MD, DNB
               </span>
             </div>
-            <p style={{
-              fontSize: '0.74rem',
-              color: '#64748B',
-              fontWeight: 500,
-              marginTop: '0.1rem',
-              letterSpacing: '0.01em'
-            }}>
+            <p 
+              className="navbar-brand-sub"
+              style={{
+                fontSize: '0.74rem',
+                color: '#64748B',
+                fontWeight: 500,
+                marginTop: '0.1rem',
+                letterSpacing: '0.01em'
+              }}
+            >
               Skin & Hair Clinic • Karamana, Trivandrum
             </p>
           </div>
@@ -241,87 +250,6 @@ export default function Navbar({ onBookClick, onOpenAI }) {
                 <ChevronRight size={16} style={{ color: '#94A3B8' }} />
               </a>
             ))}
-          </div>
-
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginTop: '0.5rem' }}>
-            {/* AI Assistant Launcher in Drawer */}
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                if (onOpenAI) onOpenAI();
-              }}
-              style={{
-                width: '100%',
-                padding: '0.85rem',
-                background: 'linear-gradient(135deg, #0D9488 0%, #0F766E 100%)',
-                color: '#FFFFFF',
-                borderRadius: 'var(--radius-md)',
-                fontWeight: 700,
-                fontSize: '0.94rem',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '0.5rem',
-                border: 'none',
-                boxShadow: '0 4px 15px rgba(13, 148, 136, 0.25)',
-                cursor: 'pointer'
-              }}
-            >
-              <Sparkles size={16} style={{ color: '#5EEAD4' }} />
-              <span>Chat with AI Care Assistant</span>
-            </button>
-
-            {/* Direct Book */}
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onBookClick();
-              }}
-              className="btn-primary"
-              style={{ width: '100%', padding: '0.85rem' }}
-            >
-              <Calendar size={16} />
-              <span>Book Appointment (5 PM - 8 PM)</span>
-            </button>
-
-            {/* Direct WhatsApp in Mobile Drawer */}
-            <a
-              href={CLINIC_INFO.whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-whatsapp"
-              style={{ width: '100%', padding: '0.85rem', textAlign: 'center', justifyContent: 'center' }}
-            >
-              <span>WhatsApp Direct Chat</span>
-            </a>
-
-            {/* Mobile Social Strip: Instagram & Facebook */}
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '1rem',
-              paddingTop: '0.5rem',
-              borderTop: '1px solid #F1F5F9'
-            }}>
-              <a
-                href={CLINIC_INFO.instagramUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ fontSize: '0.82rem', color: '#DB2777', fontWeight: 700, textDecoration: 'none' }}
-              >
-                Instagram (@dr_suchithra)
-              </a>
-              <span style={{ color: '#CBD5E1' }}>•</span>
-              <a
-                href={CLINIC_INFO.facebookUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ fontSize: '0.82rem', color: '#2563EB', fontWeight: 700, textDecoration: 'none' }}
-              >
-                Facebook Page
-              </a>
-            </div>
           </div>
         </div>
       )}

@@ -72,10 +72,12 @@ export default function HeroSection({ onBookClick, onConcernSelect: _onConcernSe
 
   return (
     <section 
+      id="hero"
+      className="clinic-section hero-section"
       style={{
         position: 'relative',
         paddingTop: '3.5rem',
-        paddingBottom: '4.5rem',
+        paddingBottom: '3.5rem',
         overflow: 'hidden',
         background: 'linear-gradient(180deg, rgba(240, 253, 250, 0.7) 0%, rgba(250, 250, 249, 1) 100%)'
       }}
@@ -111,8 +113,6 @@ export default function HeroSection({ onBookClick, onConcernSelect: _onConcernSe
         <div 
           style={{
             display: 'grid',
-            gridTemplateColumns: 'minmax(0, 1.25fr) minmax(0, 1fr)',
-            gap: '3.5rem',
             alignItems: 'center'
           }} 
           className="hero-grid"
@@ -166,7 +166,7 @@ export default function HeroSection({ onBookClick, onConcernSelect: _onConcernSe
 
             {/* Main Headline with Dynamic Left-to-Right Sliding Specialty Text */}
             <h1 
-              className="slide-in-left-delay-2"
+              className="slide-in-left-delay-2 hero-main-heading"
               style={{
                 fontSize: 'clamp(2.35rem, 4.4vw, 3.45rem)',
                 fontWeight: 800,
@@ -192,7 +192,7 @@ export default function HeroSection({ onBookClick, onConcernSelect: _onConcernSe
 
             {/* Sub-headline */}
             <p 
-              className="slide-in-left-delay-3"
+              className="slide-in-left-delay-3 hero-sub-text"
               style={{
                 fontSize: '1.1rem',
                 lineHeight: 1.68,
@@ -206,7 +206,7 @@ export default function HeroSection({ onBookClick, onConcernSelect: _onConcernSe
 
             {/* Interactive 3-Pillar Left-to-Right Slider Box */}
             <div 
-              className="slide-in-left-delay-4"
+              className="slide-in-left-delay-4 hero-pillar-box"
               style={{
                 backgroundColor: '#FFFFFF',
                 borderRadius: '18px',
@@ -216,14 +216,15 @@ export default function HeroSection({ onBookClick, onConcernSelect: _onConcernSe
                 marginBottom: '1.85rem'
               }}
             >
-              <div style={{
+              <div className="hero-pillar-header" style={{
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
-                marginBottom: '0.75rem'
+                marginBottom: '0.75rem',
+                gap: '0.5rem'
               }}>
                 {/* Pillar Navigation Tabs */}
-                <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap' }}>
+                <div className="hero-pillar-tabs" style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap' }}>
                   {pillars.map((p, idx) => (
                     <button
                       key={p.id}
@@ -309,7 +310,7 @@ export default function HeroSection({ onBookClick, onConcernSelect: _onConcernSe
 
             {/* CTAs */}
             <div 
-              className="slide-in-left-delay-5"
+              className="slide-in-left-delay-5 hero-cta-row"
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -349,6 +350,7 @@ export default function HeroSection({ onBookClick, onConcernSelect: _onConcernSe
 
             {/* Timing & Location Callout bar */}
             <div 
+              className="hero-timing-strip"
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -376,22 +378,25 @@ export default function HeroSection({ onBookClick, onConcernSelect: _onConcernSe
 
           </div>
 
-          {/* Right Column: Hero Visual Frame with Slide in from Right */}
+          {/* Right Column: Hero Visual Frame on Desktop (Hidden on <= 1024px) */}
           <div 
-            className="slide-in-right"
+            className="slide-in-right hero-visual-desktop"
             style={{ position: 'relative', display: 'flex', justifyContent: 'center' }}
           >
             {/* Portrait Card Container */}
-            <div style={{
-              position: 'relative',
-              width: '100%',
-              maxWidth: '430px',
-              borderRadius: '28px',
-              padding: '10px',
-              background: 'linear-gradient(145deg, #FFFFFF, rgba(240, 253, 250, 0.85))',
-              border: '1px solid rgba(13, 148, 136, 0.25)',
-              boxShadow: '0 25px 50px -12px rgba(15, 23, 42, 0.15), 0 0 35px -5px rgba(13, 148, 136, 0.25)'
-            }}>
+            <div 
+              className="hero-portrait-card"
+              style={{
+                position: 'relative',
+                width: '100%',
+                maxWidth: '430px',
+                borderRadius: '28px',
+                padding: '10px',
+                background: 'linear-gradient(145deg, #FFFFFF, rgba(240, 253, 250, 0.85))',
+                border: '1px solid rgba(13, 148, 136, 0.25)',
+                boxShadow: '0 25px 50px -12px rgba(15, 23, 42, 0.15), 0 0 35px -5px rgba(13, 148, 136, 0.25)'
+              }}
+            >
               {/* Doctor Photo */}
               <div style={{
                 position: 'relative',
@@ -412,44 +417,50 @@ export default function HeroSection({ onBookClick, onConcernSelect: _onConcernSe
                 />
 
                 {/* Subtle gradient overlay at bottom of photo */}
-                <div style={{
-                  position: 'absolute',
-                  inset: 'auto 0 0 0',
-                  height: '42%',
-                  background: 'linear-gradient(to top, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0) 100%)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'flex-end',
-                  padding: '1.25rem',
-                  color: '#FFFFFF'
-                }}>
-                  <div style={{ fontSize: '1.25rem', fontWeight: 800, letterSpacing: '-0.01em' }}>
+                <div 
+                  className="hero-photo-overlay"
+                  style={{
+                    position: 'absolute',
+                    inset: 'auto 0 0 0',
+                    height: '42%',
+                    background: 'linear-gradient(to top, rgba(15, 23, 42, 0.92) 0%, rgba(15, 23, 42, 0) 100%)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'flex-end',
+                    padding: '1.25rem',
+                    color: '#FFFFFF'
+                  }}
+                >
+                  <div className="hero-doc-name" style={{ fontSize: '1.25rem', fontWeight: 800, letterSpacing: '-0.01em' }}>
                     Dr. Suchithra C
                   </div>
-                  <div style={{ fontSize: '0.8rem', color: '#99F6E4', fontWeight: 600 }}>
+                  <div className="hero-doc-degrees" style={{ fontSize: '0.8rem', color: '#99F6E4', fontWeight: 600 }}>
                     MBBS, MD, DNB (Dermatology, Venereology & Leprosy)
                   </div>
                 </div>
               </div>
 
               {/* Floating Trust Badge 1: Pedigree */}
-              <div style={{
-                position: 'absolute',
-                top: '28px',
-                left: '-24px',
-                background: '#FFFFFF',
-                padding: '0.7rem 1.05rem',
-                borderRadius: '16px',
-                boxShadow: '0 12px 28px rgba(15, 23, 42, 0.12)',
-                border: '1px solid #E2E8F0',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.65rem',
-                zIndex: 2
-              }} className="float-animation hero-float-badge-left">
-                <div style={{
-                  width: '36px',
-                  height: '36px',
+              <div 
+                className="float-animation hero-float-badge-left"
+                style={{
+                  position: 'absolute',
+                  top: '20px',
+                  left: '-18px',
+                  background: '#FFFFFF',
+                  padding: '0.65rem 1rem',
+                  borderRadius: '16px',
+                  boxShadow: '0 12px 28px rgba(15, 23, 42, 0.12)',
+                  border: '1px solid #E2E8F0',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.65rem',
+                  zIndex: 2
+                }}
+              >
+                <div className="hero-badge-icon-box" style={{
+                  width: '34px',
+                  height: '34px',
                   borderRadius: '10px',
                   background: '#F0FDFA',
                   color: '#0D9488',
@@ -458,36 +469,39 @@ export default function HeroSection({ onBookClick, onConcernSelect: _onConcernSe
                   justifyContent: 'center',
                   fontWeight: 800
                 }}>
-                  <Award size={20} />
+                  <Award size={18} />
                 </div>
                 <div>
-                  <div style={{ fontSize: '0.72rem', textTransform: 'uppercase', color: '#64748B', fontWeight: 700 }}>
+                  <div className="hero-badge-tag" style={{ fontSize: '0.7rem', textTransform: 'uppercase', color: '#64748B', fontWeight: 700 }}>
                     Institutional Pedigree
                   </div>
-                  <div style={{ fontSize: '0.84rem', fontWeight: 700, color: '#0F172A' }}>
+                  <div className="hero-badge-val" style={{ fontSize: '0.84rem', fontWeight: 700, color: '#0F172A' }}>
                     Ex-KIMSHEALTH Consultant
                   </div>
                 </div>
               </div>
 
               {/* Floating Trust Badge 2: 688+ 5★ Reviews with Google Brand */}
-              <div style={{
-                position: 'absolute',
-                bottom: '36px',
-                right: '-24px',
-                background: '#FFFFFF',
-                padding: '0.7rem 1.15rem',
-                borderRadius: '16px',
-                boxShadow: '0 12px 28px rgba(15, 23, 42, 0.12)',
-                border: '1px solid #E2E8F0',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.65rem',
-                zIndex: 2
-              }} className="float-animation hero-float-badge-right">
-                <div style={{
-                  width: '36px',
-                  height: '36px',
+              <div 
+                className="float-animation hero-float-badge-right"
+                style={{
+                  position: 'absolute',
+                  bottom: '-14px',
+                  right: '-18px',
+                  background: '#FFFFFF',
+                  padding: '0.65rem 1.05rem',
+                  borderRadius: '16px',
+                  boxShadow: '0 12px 28px rgba(15, 23, 42, 0.12)',
+                  border: '1px solid #E2E8F0',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.65rem',
+                  zIndex: 2
+                }}
+              >
+                <div className="hero-badge-icon-box" style={{
+                  width: '34px',
+                  height: '34px',
                   borderRadius: '10px',
                   background: '#FEF3C7',
                   color: '#D97706',
@@ -495,13 +509,13 @@ export default function HeroSection({ onBookClick, onConcernSelect: _onConcernSe
                   alignItems: 'center',
                   justifyContent: 'center'
                 }}>
-                  <GoogleIcon size={20} />
+                  <GoogleIcon size={18} />
                 </div>
                 <div>
-                  <div style={{ fontSize: '0.88rem', fontWeight: 800, color: '#0F172A' }}>
+                  <div className="hero-badge-val" style={{ fontSize: '0.86rem', fontWeight: 800, color: '#0F172A' }}>
                     688+ Google Reviews
                   </div>
-                  <div style={{ fontSize: '0.74rem', color: '#059669', fontWeight: 700 }}>
+                  <div className="hero-badge-sub" style={{ fontSize: '0.72rem', color: '#059669', fontWeight: 700 }}>
                     5.0 ★ Unanimous Rating
                   </div>
                 </div>
@@ -580,49 +594,49 @@ export default function HeroSection({ onBookClick, onConcernSelect: _onConcernSe
           boxShadow: '0 10px 30px -5px rgba(15, 23, 42, 0.05)'
         }} className="hero-stats-strip">
           <div style={{ borderRight: '1px solid #F1F5F9', paddingRight: '1rem' }} className="stat-card">
-            <div style={{ fontSize: '2.1rem', fontWeight: 800, color: '#0D9488', fontFamily: 'var(--font-display)', lineHeight: 1.1 }}>
+            <div className="stat-number" style={{ fontSize: '2.1rem', fontWeight: 800, color: '#0D9488', fontFamily: 'var(--font-display)', lineHeight: 1.1 }}>
               11+ Yrs
             </div>
-            <div style={{ fontSize: '0.92rem', fontWeight: 700, color: '#0F172A', marginTop: '0.2rem' }}>
+            <div className="stat-label" style={{ fontSize: '0.92rem', fontWeight: 700, color: '#0F172A', marginTop: '0.2rem' }}>
               Clinical Experience
             </div>
-            <div style={{ fontSize: '0.78rem', color: '#64748B', marginTop: '0.1rem' }}>
+            <div className="stat-desc" style={{ fontSize: '0.78rem', color: '#64748B', marginTop: '0.1rem' }}>
               Ex-KIMSHEALTH, Attukal & NIMS
             </div>
           </div>
 
           <div style={{ borderRight: '1px solid #F1F5F9', paddingRight: '1rem' }} className="stat-card">
-            <div style={{ fontSize: '2.1rem', fontWeight: 800, color: '#0D9488', fontFamily: 'var(--font-display)', lineHeight: 1.1 }}>
+            <div className="stat-number" style={{ fontSize: '2.1rem', fontWeight: 800, color: '#0D9488', fontFamily: 'var(--font-display)', lineHeight: 1.1 }}>
               688+
             </div>
-            <div style={{ fontSize: '0.92rem', fontWeight: 700, color: '#0F172A', marginTop: '0.2rem' }}>
+            <div className="stat-label" style={{ fontSize: '0.92rem', fontWeight: 700, color: '#0F172A', marginTop: '0.2rem' }}>
               5-Star Google Reviews
             </div>
-            <div style={{ fontSize: '0.78rem', color: '#64748B', marginTop: '0.1rem' }}>
+            <div className="stat-desc" style={{ fontSize: '0.78rem', color: '#64748B', marginTop: '0.1rem' }}>
               Top 3 Dermatologists in TVM
             </div>
           </div>
 
           <div style={{ borderRight: '1px solid #F1F5F9', paddingRight: '1rem' }} className="stat-card">
-            <div style={{ fontSize: '2.1rem', fontWeight: 800, color: '#0D9488', fontFamily: 'var(--font-display)', lineHeight: 1.1 }}>
+            <div className="stat-number" style={{ fontSize: '2.1rem', fontWeight: 800, color: '#0D9488', fontFamily: 'var(--font-display)', lineHeight: 1.1 }}>
               100%
             </div>
-            <div style={{ fontSize: '0.92rem', fontWeight: 700, color: '#0F172A', marginTop: '0.2rem' }}>
+            <div className="stat-label" style={{ fontSize: '0.92rem', fontWeight: 700, color: '#0F172A', marginTop: '0.2rem' }}>
               Doctor-Administered
             </div>
-            <div style={{ fontSize: '0.78rem', color: '#64748B', marginTop: '0.1rem' }}>
+            <div className="stat-desc" style={{ fontSize: '0.78rem', color: '#64748B', marginTop: '0.1rem' }}>
               Zero technician hand-offs
             </div>
           </div>
 
           <div className="stat-card">
-            <div style={{ fontSize: '2.1rem', fontWeight: 800, color: '#0D9488', fontFamily: 'var(--font-display)', lineHeight: 1.1 }}>
+            <div className="stat-number" style={{ fontSize: '2.1rem', fontWeight: 800, color: '#0D9488', fontFamily: 'var(--font-display)', lineHeight: 1.1 }}>
               Dual
             </div>
-            <div style={{ fontSize: '0.92rem', fontWeight: 700, color: '#0F172A', marginTop: '0.2rem' }}>
+            <div className="stat-label" style={{ fontSize: '0.92rem', fontWeight: 700, color: '#0F172A', marginTop: '0.2rem' }}>
               MD & National DNB
             </div>
-            <div style={{ fontSize: '0.78rem', color: '#64748B', marginTop: '0.1rem' }}>
+            <div className="stat-desc" style={{ fontSize: '0.78rem', color: '#64748B', marginTop: '0.1rem' }}>
               Gold standard credentials
             </div>
           </div>

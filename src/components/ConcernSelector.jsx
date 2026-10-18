@@ -67,9 +67,9 @@ export default function ConcernSelector({ onSelectConcern }) {
   const activeDetail = CONCERN_DETAILS[activeConcernId] || CONCERN_DETAILS.acne;
 
   return (
-    <section id="concerns" style={{
-      paddingTop: '4.5rem',
-      paddingBottom: '4.5rem',
+    <section id="concerns" className="clinic-section" style={{
+      paddingTop: '3.5rem',
+      paddingBottom: '3.5rem',
       backgroundColor: '#FAFAF9',
       borderTop: '1px solid #E2E8F0',
       borderBottom: '1px solid #E2E8F0'
@@ -89,51 +89,53 @@ export default function ConcernSelector({ onSelectConcern }) {
             Select your symptom below for an instant clinical triage overview and physician-recommended treatment pathway.
           </p>
 
-          {/* Concern Buttons / Chips */}
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '0.75rem',
-            flexWrap: 'wrap',
-            marginTop: '1.5rem'
-          }}>
-            {QUICK_CONCERNS.map((item) => {
-              const Icon = iconMap[item.icon] || Sparkles;
-              const isActive = activeConcernId === item.id;
+          {/* Concern Buttons / Chips Container */}
+          <div className="concern-pills-wrapper">
+            <div className="concern-pills-container">
+              {QUICK_CONCERNS.map((item) => {
+                const Icon = iconMap[item.icon] || Sparkles;
+                const isActive = activeConcernId === item.id;
 
-              return (
-                <button
-                  key={item.id}
-                  onClick={() => setActiveConcernId(item.id)}
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '0.5rem',
-                    padding: '0.75rem 1.25rem',
-                    borderRadius: '9999px',
-                    fontSize: '0.92rem',
-                    fontWeight: 600,
-                    transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
-                    backgroundColor: isActive ? '#0D9488' : '#FFFFFF',
-                    color: isActive ? '#FFFFFF' : '#334155',
-                    border: '1px solid',
-                    borderColor: isActive ? '#0D9488' : '#E2E8F0',
-                    boxShadow: isActive ? '0 8px 20px rgba(13, 148, 136, 0.3)' : '0 2px 5px rgba(15, 23, 42, 0.04)',
-                    cursor: 'pointer',
-                    transform: isActive ? 'scale(1.03)' : 'scale(1)'
-                  }}
-                >
-                  <Icon size={16} color={isActive ? '#FFFFFF' : '#0D9488'} />
-                  <span>{item.label}</span>
-                </button>
-              );
-            })}
+                return (
+                  <button
+                    key={item.id}
+                    onClick={() => setActiveConcernId(item.id)}
+                    className={`concern-pill-btn ${isActive ? 'is-active' : ''}`}
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '0.45rem',
+                      padding: '0.7rem 1.15rem',
+                      borderRadius: '9999px',
+                      fontSize: '0.9rem',
+                      fontWeight: 600,
+                      transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
+                      backgroundColor: isActive ? '#0D9488' : '#FFFFFF',
+                      color: isActive ? '#FFFFFF' : '#334155',
+                      border: '1px solid',
+                      borderColor: isActive ? '#0D9488' : '#E2E8F0',
+                      boxShadow: isActive ? '0 8px 20px rgba(13, 148, 136, 0.3)' : '0 2px 5px rgba(15, 23, 42, 0.04)',
+                      cursor: 'pointer',
+                      transform: isActive ? 'scale(1.02)' : 'scale(1)'
+                    }}
+                  >
+                    <Icon size={16} color={isActive ? '#FFFFFF' : '#0D9488'} />
+                    <span>{item.label}</span>
+                  </button>
+                );
+              })}
+            </div>
+            
+            {/* Mobile swipe hint banner (Only shown on mobile) */}
+            <div className="concern-swipe-hint">
+              <span>← Swipe for all 6 symptoms →</span>
+            </div>
           </div>
         </div>
 
         {/* Dynamic Detail Card */}
-        <div className="glass-card" style={{
+        <div className="glass-card concern-detail-card" style={{
           maxWidth: '920px',
           margin: '0 auto',
           padding: '2.25rem',
@@ -142,7 +144,7 @@ export default function ConcernSelector({ onSelectConcern }) {
           border: '1px solid rgba(13, 148, 136, 0.25)',
           boxShadow: '0 20px 40px -10px rgba(15, 23, 42, 0.08)'
         }}>
-          <div style={{
+          <div className="concern-card-header" style={{
             display: 'flex',
             alignItems: 'flex-start',
             justifyContent: 'space-between',
@@ -171,7 +173,7 @@ export default function ConcernSelector({ onSelectConcern }) {
 
             <button
               onClick={() => onSelectConcern(activeDetail.title)}
-              className="btn-primary"
+              className="btn-primary concern-book-btn"
               style={{
                 padding: '0.75rem 1.4rem',
                 fontSize: '0.92rem'

@@ -1,0 +1,555 @@
+/* Dr. Suchithra Clinic - Responsive & Layout Styles */
+
+/* Header & Topbar Breakpoints - Prevents Navbar Cramping */
+@media (max-width: 1140px) {
+  .desktop-nav {
+    display: none !important;
+  }
+  .desktop-actions {
+    display: none !important;
+  }
+  .mobile-toggle {
+    display: flex !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+/* Hide Top Announcement Bar on all mobile phone screens (visible only on Tab and Desktop >= 768px) */
+@media (max-width: 767px) {
+  .top-announcement-bar {
+    display: none !important;
+  }
+}
+
+/* Hero Trust Rating Pill - Single-Line Clean Layout without Awkward Warping */
+.hero-trust-pill {
+  white-space: nowrap !important;
+  flex-wrap: nowrap !important;
+}
+
+.hero-trust-pill .pill-rating-short {
+  display: none !important;
+}
+
+.hero-trust-pill .pill-rating-full {
+  display: inline !important;
+}
+
+@media (max-width: 640px) {
+  .hero-trust-pill {
+    padding: 0.38rem 0.75rem !important;
+    gap: 0.45rem !important;
+  }
+  .hero-trust-pill .pill-stars {
+    display: none !important; /* Prevents awkward multi-line break on phone screens */
+  }
+  .hero-trust-pill .pill-rating-full {
+    display: none !important;
+  }
+  .hero-trust-pill .pill-rating-short {
+    display: inline !important;
+  }
+  .hero-trust-pill .pill-badge-tag {
+    font-size: 0.72rem !important;
+    padding-left: 0.45rem !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero-trust-pill .pill-badge-tag {
+    display: none !important; /* On extremely narrow 360px devices */
+  }
+}
+
+/* Floating Side Connect Dock (Fixed on LEFT for all screens) */
+.side-connect-bar {
+  position: fixed;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Floating AI Bot Launcher (Fixed on RIGHT for all screens) */
+.ai-bot-floating-trigger {
+  position: fixed;
+  right: 20px;
+  bottom: 22px;
+  z-index: 90;
+  display: flex !important;
+}
+
+@media (max-width: 768px) {
+  /* On mobile phones, position Connect on bottom-left and AI bot on bottom-right */
+  .side-connect-bar {
+    position: fixed !important;
+    left: 12px !important;
+    bottom: 16px !important;
+    top: auto !important;
+    transform: none !important;
+    z-index: 90 !important;
+  }
+  .connect-dock-capsule {
+    padding: 8px 4px !important;
+    gap: 6px !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5) !important;
+  }
+  .connect-dock-btn {
+    width: 36px !important;
+    height: 36px !important;
+  }
+  .ai-bot-floating-trigger {
+    position: fixed !important;
+    right: 12px !important;
+    bottom: 16px !important;
+    z-index: 90 !important;
+    display: flex !important;
+  }
+  .ai-launcher-btn {
+    padding: 0.45rem 0.85rem 0.45rem 0.45rem !important;
+    box-shadow: 0 8px 24px -2px rgba(13, 148, 136, 0.5) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .ai-launcher-text {
+    display: none !important; /* Turns into a compact circular luxury avatar launcher on small phones */
+  }
+  .ai-launcher-btn {
+    padding: 5px !important;
+    border-radius: 50% !important;
+  }
+  .side-connect-bar {
+    left: 10px !important;
+    bottom: 14px !important;
+  }
+  .ai-bot-floating-trigger {
+    right: 10px !important;
+    bottom: 14px !important;
+  }
+}
+
+/* Scroll Slide Reveal Transitions */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-reveal-left {
+  opacity: 0;
+  transform: translateX(-36px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal-left.is-revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-reveal-right {
+  opacity: 0;
+  transform: translateX(36px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal-right.is-revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Hero Grid & Badges Mobile Responsive */
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+  }
+  .hero-float-badge-left {
+    left: 0 !important;
+    top: 10px !important;
+  }
+  .hero-float-badge-right {
+    right: 0 !important;
+    bottom: 10px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-features-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .hero-stats-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    padding: 1rem !important;
+    gap: 1rem !important;
+  }
+  .stat-card {
+    border-right: none !important;
+  }
+  .hero-float-badge-left, .hero-float-badge-right {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    margin-top: 0.5rem !important;
+  }
+}
+
+/* Concern Selector */
+@media (max-width: 768px) {
+  .concern-detail-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+}
+
+/* Founder Section */
+@media (max-width: 1024px) {
+  .founder-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+  }
+}
+
+/* Comparison Table Mobile */
+@media (max-width: 768px) {
+  .comparison-header {
+    display: none !important;
+  }
+  .comparison-row {
+    grid-template-columns: 1fr !important;
+    gap: 0.65rem !important;
+    padding: 1.25rem !important;
+  }
+  .warning-banner {
+    flex-direction: column !important;
+    text-align: left !important;
+  }
+}
+
+/* Interactive Booking Grid */
+@media (max-width: 960px) {
+  .booking-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .booking-card {
+    padding: 1.25rem !important;
+  }
+  .patient-inputs-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Logistics Grid */
+@media (max-width: 960px) {
+  .logistics-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .logistics-suite-col {
+    height: auto !important;
+  }
+}
+
+/* Footer Grid */
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 2.5rem !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+}
+
+/* Mobile AI Bot Chat Modal */
+@media (max-width: 640px) {
+  .ai-bot-container {
+    bottom: 0 !important;
+    right: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 90vh !important;
+    max-height: 90vh !important;
+    border-radius: 24px 24px 0 0 !important;
+    box-shadow: 0 -10px 40px rgba(15, 23, 42, 0.25) !important;
+  }
+}
+
+/* Smooth Fade In */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.35s ease forwards;
+}
+
+/* Creative Smooth Left to Right Slide Animations */
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-45px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(45px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.slide-in-left-delay-1 {
+  animation: slideInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+
+.slide-in-left-delay-2 {
+  animation: slideInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
+.slide-in-left-delay-3 {
+  animation: slideInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+}
+
+.slide-in-left-delay-4 {
+  animation: slideInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+}
+
+.slide-in-left-delay-5 {
+  animation: slideInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+}
+
+/* Infinite Smooth Left-to-Right Marquee Ticker */
+@keyframes marqueeLeftToRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.hero-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeLeftToRight 30s linear infinite;
+}
+
+.hero-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Dynamic Text Shimmer */
+@keyframes shimmerWave {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.text-shimmer {
+  background: linear-gradient(90deg, #0D9488 0%, #0284C7 25%, #2DD4BF 50%, #0D9488 75%, #0284C7 100%);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shimmerWave 6s linear infinite;
+}
+
+/* Preloader Luxury Animations */
+@keyframes pulseRing {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+}
+
+@keyframes pulseGlow {
+  0% {
+    transform: scale(0.92);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1.18);
+    opacity: 0.85;
+  }
+}
+
+@keyframes floatBadge {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* =========================================================================
+   Grégory Lallé ('24 Awwwards SOTD) Signature Motion & Page Transitions
+   Seamless fluid curves, masked line-by-line slide reveals, and card staggers
+   ========================================================================= */
+
+/* 1. Masked Line Reveal (Text slides up from an invisible clipping box) */
+.lalle-mask {
+  overflow: hidden;
+  display: block;
+}
+
+.lalle-mask-text {
+  display: inline-block;
+  transform: translateY(110%);
+  opacity: 0;
+  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.is-revealed .lalle-mask-text,
+.is-revealed.lalle-mask-text {
+  transform: translateY(0%);
+  opacity: 1;
+}
+
+/* 2. Fluid Section Reveal (Awwwards momentum slide) */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(40px) scale(0.985);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal.is-revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* 3. Staggered Child Reveal for Cards and Grids */
+.lalle-stagger > * {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.is-revealed.lalle-stagger > *:nth-child(1),
+.is-revealed .lalle-stagger > *:nth-child(1) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.05s;
+}
+
+.is-revealed.lalle-stagger > *:nth-child(2),
+.is-revealed .lalle-stagger > *:nth-child(2) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.12s;
+}
+
+.is-revealed.lalle-stagger > *:nth-child(3),
+.is-revealed .lalle-stagger > *:nth-child(3) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.19s;
+}
+
+.is-revealed.lalle-stagger > *:nth-child(4),
+.is-revealed .lalle-stagger > *:nth-child(4) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.26s;
+}
+
+.is-revealed.lalle-stagger > *:nth-child(5),
+.is-revealed .lalle-stagger > *:nth-child(5) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.33s;
+}
+
+.is-revealed.lalle-stagger > *:nth-child(6),
+.is-revealed .lalle-stagger > *:nth-child(6) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.40s;
+}
+
+/* 4. Luxury Image Zoom/Pan-In on Reveal */
+.lalle-img-reveal {
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.lalle-img-reveal img {
+  transform: scale(1.08);
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.is-revealed .lalle-img-reveal img {
+  transform: scale(1);
+}
+
+/* 5. Mobile Fluid Touch Easing */
+@media (max-width: 768px) {
+  .scroll-reveal {
+    transform: translateY(28px) scale(0.99);
+    transition-duration: 0.75s;
+  }
+  .lalle-stagger > * {
+    transform: translateY(24px);
+    transition-duration: 0.65s;
+  }
+}
